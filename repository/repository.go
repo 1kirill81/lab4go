@@ -21,11 +21,11 @@ type TestRepository interface {
 	GetDBTestByID(ctx context.Context, id int64) (DBTestRecord, error)
 	CreateUser(ctx context.Context, params CreateUserParams) (User, error)
 	GetUserByLogin(ctx context.Context, login string) (User, error)
-
+	
 	// Новые методы для 4 лабы
 	CreateAd(ctx context.Context, userID int64, title, description string, price float64, status string) (Ad, error)
 	GetAdsByUserID(ctx context.Context, userID int64) ([]Ad, error)
-
+	
 	Close() error
 }
 

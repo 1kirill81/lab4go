@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"go-project/service"
+	"go-project/repository"
 	"io"
 	"net/http"
 	"strconv"
@@ -177,7 +178,7 @@ func (h *TestHandler) GetMyAds(w http.ResponseWriter, r *http.Request) {
 
 	// Если у пользователя пока нет объявлений, вернем пустой массив []
 	if ads == nil {
-		ads = make([]any, 0)
+		ads = []repository.Ad{}
 	}
 
 	writeJSON(w, http.StatusOK, ads)
